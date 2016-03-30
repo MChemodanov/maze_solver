@@ -25,6 +25,9 @@ void initMaze(Maze & m)
 
 void solve(Robot & r)
 {
+    for (int i=0; i< r.getSensorsCount();i++)
+        cout << "Sensor " << i << ":" << r.getSensorValue(i) << endl;
+
     switch(rand()%3)
     {
         case 0: r.moveStraight(); break;
@@ -49,9 +52,6 @@ int main()
     while (true)
     {
         maze.printMaze(robot.getPosition(), robot.getDirection());
-        for (int i=0; i< robot.getSensorsCount();i++)
-            cout << "Sensor " << i << ":" << robot.getSensorValue(i) << endl;
-
         solve(robot);
         _getch();
         system("cls");

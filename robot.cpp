@@ -4,10 +4,11 @@
 Point Robot::turnShift(Point originalPos, float originalDir, Point vector)
 {
     int length = sqrt(vector.x*vector.x + vector.y*vector.y);
-    float angle = atan2(vector.x, vector.y);
+    float angle = atan2(vector.x, vector.y) + originalDir;
     Point shift (0,0);
-    shift.x = length*sin(angle + originalDir);
-    shift.y = length*cos(angle + originalDir);
+    shift.x = round(length*sin(angle));
+    shift.y = round(length*cos(angle));
+
     return originalPos + shift;
 }
 

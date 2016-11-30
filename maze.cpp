@@ -33,7 +33,7 @@ bool Maze::getValue(Point position)
 
 bool floatEqual(float value, float reference)
 {
-    return abs(value-reference) < 0.1;
+    return fabs(value-reference) < 0.1;
 }
 
 void Maze::printMaze(Point mark, float direction)
